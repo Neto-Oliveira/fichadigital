@@ -26,7 +26,7 @@ const dadosTreinos = {
                 { nome: "Stiff", series: "3", repeticoes: "12", dica: "Mantenha as costas retas" },
                 { nome: "Bom Dia (Good Morning)", series: "3", repeticoes: "12", dica: "Cuidado com a postura" },
                 { nome: "Adução Sentado", series: "3", repeticoes: "15", dica: "Trabalho de adutores" },
-                { nome: "Adução Sentado DROPSET", series: "3", repeticoes: "10 + 10", dica: "Drop set para intensidade" },
+                { nome: "Abdução Sentado DROPSET", series: "3", repeticoes: "10 + 10", dica: "Drop set para intensidade" },
                 { nome: "Adução em Pé", series: "3", repeticoes: "15", dica: "Variação em pé" },
                 { nome: "Abdução em Pé", series: "3", repeticoes: "15", dica: "Trabalho de abdutores" },
                 { nome: "Glúteo na Máquina", series: "3", repeticoes: "12", dica: "Máquina específica para glúteo" },
