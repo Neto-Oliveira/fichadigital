@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Trainer - Sistema de Treinos Avançado</title>
+    <title>Personal Trainer - Sistema de Treinos Flexível</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Personal Trainer - Sistema de Treinos</h1>
-        <p>Configure treinos personalizados selecionando exercícios de toda a base</p>
+        <h1>Personal Trainer - Sistema de Treinos Flexível</h1>
+        <p>Adicione qualquer exercício a qualquer treino para máxima flexibilidade</p>
     </header>
 
     <main>
         <section class="configuracao-avancada">
-            <h2>Configuração de Treinos</h2>
+            <h2>Configuração de Treinos Flexível</h2>
             
             <div class="biblioteca-exercicios">
                 <h3>📚 Biblioteca de Exercícios</h3>
@@ -22,9 +22,10 @@
                     <select id="filtro-grupo">
                         <option value="">Todos os Grupos</option>
                         <option value="A">🦵 Perna e Glúteo</option>
-                        <option value="B">💪 Peito e Tríceps</option>
-                        <option value="C">🏋️‍♂️ Costas e Bíceps</option>
-                        <option value="D">🧠 Abdômen e Cardio</option>
+                        <option value="B">💪 Ombro e Trapézio</option>
+                        <option value="C">💪 Peito e Tríceps</option>
+                        <option value="D">🏋️‍♂️ Costas e Bíceps</option>
+                        <option value="E">🧠 Abdômen e Cardio</option>
                     </select>
                     <input type="text" id="busca-exercicio" placeholder="🔍 Buscar exercício...">
                 </div>
@@ -34,12 +35,12 @@
             </div>
 
             <div class="treinos-personalizados">
-                <h3>🎯 Treinos Personalizados</h3>
+                <h3>🎯 Treinos Personalizados (Adicione qualquer exercício a qualquer treino)</h3>
                 <div class="grupos-treino">
                     <div class="grupo" data-grupo="A">
                         <div class="grupo-header">
                             <h4>🦵 TREINO A</h4>
-                            <input type="text" class="nome-treino" value="Perna e Glúteo" placeholder="Nome do treino...">
+                            <input type="text" class="nome-treino" value="Meu Treino A" placeholder="Nome do treino...">
                         </div>
                         <div class="exercicios-lista" data-grupo="A">
                             <!-- Exercícios selecionados -->
@@ -53,7 +54,7 @@
                     <div class="grupo" data-grupo="B">
                         <div class="grupo-header">
                             <h4>💪 TREINO B</h4>
-                            <input type="text" class="nome-treino" value="Peito e Tríceps" placeholder="Nome do treino...">
+                            <input type="text" class="nome-treino" value="Meu Treino B" placeholder="Nome do treino...">
                         </div>
                         <div class="exercicios-lista" data-grupo="B">
                             <!-- Exercícios selecionados -->
@@ -66,8 +67,8 @@
 
                     <div class="grupo" data-grupo="C">
                         <div class="grupo-header">
-                            <h4>🏋️‍♂️ TREINO C</h4>
-                            <input type="text" class="nome-treino" value="Costas e Bíceps" placeholder="Nome do treino...">
+                            <h4>💪 TREINO C</h4>
+                            <input type="text" class="nome-treino" value="Meu Treino C" placeholder="Nome do treino...">
                         </div>
                         <div class="exercicios-lista" data-grupo="C">
                             <!-- Exercícios selecionados -->
@@ -80,14 +81,28 @@
 
                     <div class="grupo" data-grupo="D">
                         <div class="grupo-header">
-                            <h4>🧠 TREINO D</h4>
-                            <input type="text" class="nome-treino" value="Abdômen e Cardio" placeholder="Nome do treino...">
+                            <h4>🏋️‍♂️ TREINO D</h4>
+                            <input type="text" class="nome-treino" value="Meu Treino D" placeholder="Nome do treino...">
                         </div>
                         <div class="exercicios-lista" data-grupo="D">
                             <!-- Exercícios selecionados -->
                         </div>
                         <div class="controles-grupo">
                             <button class="btn-limpar" data-treino="D">🗑️ Limpar</button>
+                            <span class="contador">0 exercícios</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo" data-grupo="E">
+                        <div class="grupo-header">
+                            <h4>🧠 TREINO E</h4>
+                            <input type="text" class="nome-treino" value="Meu Treino E" placeholder="Nome do treino...">
+                        </div>
+                        <div class="exercicios-lista" data-grupo="E">
+                            <!-- Exercícios selecionados -->
+                        </div>
+                        <div class="controles-grupo">
+                            <button class="btn-limpar" data-treino="E">🗑️ Limpar</button>
                             <span class="contador">0 exercícios</span>
                         </div>
                     </div>
@@ -105,6 +120,7 @@
                             <option value="B">Treino B</option>
                             <option value="C">Treino C</option>
                             <option value="D">Treino D</option>
+                            <option value="E">Treino E</option>
                             <option value="descanso">Descanso</option>
                         </select>
                     </div>
@@ -116,6 +132,7 @@
                             <option value="B">Treino B</option>
                             <option value="C">Treino C</option>
                             <option value="D">Treino D</option>
+                            <option value="E">Treino E</option>
                             <option value="descanso">Descanso</option>
                         </select>
                     </div>
@@ -127,6 +144,7 @@
                             <option value="B">Treino B</option>
                             <option value="C">Treino C</option>
                             <option value="D">Treino D</option>
+                            <option value="E">Treino E</option>
                             <option value="descanso">Descanso</option>
                         </select>
                     </div>
@@ -138,6 +156,7 @@
                             <option value="B">Treino B</option>
                             <option value="C">Treino C</option>
                             <option value="D">Treino D</option>
+                            <option value="E">Treino E</option>
                             <option value="descanso">Descanso</option>
                         </select>
                     </div>
@@ -149,6 +168,7 @@
                             <option value="B">Treino B</option>
                             <option value="C">Treino C</option>
                             <option value="D">Treino D</option>
+                            <option value="E">Treino E</option>
                             <option value="descanso">Descanso</option>
                         </select>
                     </div>
@@ -160,6 +180,7 @@
                             <option value="B">Treino B</option>
                             <option value="C">Treino C</option>
                             <option value="D">Treino D</option>
+                            <option value="E">Treino E</option>
                             <option value="descanso">Descanso</option>
                         </select>
                     </div>

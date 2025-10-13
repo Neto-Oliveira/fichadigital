@@ -88,7 +88,7 @@ function mostrarTreino(dia) {
         if (treinoId === 'descanso') {
             area.innerHTML = `
                 <div class="descanso">
-                    <h3>Descanso Ativo - ${getDiaSemana(dia)}</h3>
+                    <h3>${getDiaSemana(dia)} - Descanso</h3>
                     <p>Este é seu dia de descanso. Aproveite para se recuperar!</p>
                     ${treinoConcluido ? '<div class="status-concluido">✅ Dia de descanso registrado</div>' : ''}
                 </div>
@@ -110,7 +110,8 @@ function mostrarTreino(dia) {
         }
 
         let html = `<div class="treino">
-            <h2>${treino.nome} - ${getDiaSemana(dia)}</h2>
+            <h2>${getDiaSemana(dia)}</h2>
+            <h3 class="nome-treino-aluno">${treino.nome} <span class="treino-tipo">(Treino ${treinoId})</span></h3>
             ${treinoConcluido ? '<div class="status-concluido">✅ TREINO CONCLUÍDO!</div>' : ''}
             
             ${treino.exercicios.map((ex, index) => {
@@ -137,7 +138,6 @@ function mostrarTreino(dia) {
 
         area.innerHTML = html;
         atualizarProgressoSemanal();
-        verificarProgressoSequencial();
         
     } catch (error) {
         console.error('Erro ao mostrar treino:', error);
@@ -209,9 +209,8 @@ function finalizarTreino(dia) {
     
     localStorage.setItem('progressoAluno', JSON.stringify(progresso));
     
-    alert(`🎉 Parabéns! Treino ${treinoId} da ${getDiaSemana(dia)} concluído com sucesso!`);
+    alert(`🎉 Parabéns! Treino da ${getDiaSemana(dia)} concluído com sucesso!`);
     mostrarTreino(dia);
-    verificarProgressoSequencial();
 }
 
 // Atualiza barras de progresso
@@ -257,42 +256,6 @@ function atualizarProgressoSemanal() {
         } else {
             statusElement.textContent = `Treino da semana: ${treinosConcluidos}/${dias.length} dias`;
             statusElement.className = 'status-pendente';
-        }
-    }
-}
-
-// Verifica sequência de treinos
-function verificarProgressoSequencial() {
-    const diasOrdem = ['segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado'];
-    const progressoSalvo = localStorage.getItem('progressoAluno');
-    const progresso = progressoSalvo ? JSON.parse(progressoSalvo) : {};
-    
-    let diaAtualIndex = 0;
-    
-    for (let i = 0; i < diasOrdem.length; i++) {
-        if (progresso[diasOrdem[i]] && progresso[diasOrdem[i]].concluido) {
-            diaAtualIndex = i + 1;
-        } else {
-            break;
-        }
-    }
-    
-    if (diaAtualIndex < diasOrdem.length) {
-        const diaAtual = diasOrdem[diaAtualIndex];
-        const diaAnterior = diaAtualIndex > 0 ? diasOrdem[diaAtualIndex - 1] : null;
-        
-        if (diaAnterior && !progresso[diaAtual]?.concluido) {
-            const area = document.getElementById("conteudo-treino");
-            const alerta = document.createElement('div');
-            alerta.className = 'alerta-treino';
-            alerta.innerHTML = `
-                <strong>⚠️ ATENÇÃO</strong>
-                <p>Treino ${getDiaSemana(diaAnterior)} concluído! Para melhor evolução, conclua o treino ${getDiaSemana(diaAtual)} antes de avançar.</p>
-            `;
-            
-            if (area && !area.querySelector('.alerta-treino')) {
-                area.insertBefore(alerta, area.firstChild);
-            }
         }
     }
 }

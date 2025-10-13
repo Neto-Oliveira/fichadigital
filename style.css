@@ -33,8 +33,6 @@ header {
     color: var(--neon-green);
     text-align: center;
     padding: 2rem 1rem;
-
-
     position: relative;
     overflow: hidden;
 }
@@ -58,7 +56,6 @@ header::before {
 header h1 {
     margin-bottom: 0.5rem;
     font-size: 2.5rem;
-
     letter-spacing: 1px;
 }
 
@@ -108,7 +105,6 @@ main {
     text-align: center;
     border-bottom: 2px solid var(--neon-green);
     padding-bottom: 0.5rem;
-
 }
 
 /* Biblioteca de Exercícios */
@@ -588,6 +584,22 @@ main {
     text-shadow: 0 0 5px var(--neon-green);
 }
 
+.nome-treino-aluno {
+    color: var(--neon-green-light);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+    border-bottom: 1px solid var(--neon-green);
+    padding-bottom: 0.5rem;
+}
+
+.treino-tipo {
+    color: var(--neon-green);
+    font-size: 1rem;
+    opacity: 0.8;
+    font-weight: normal;
+}
+
 .exercicio {
     background: #222;
     margin: 1rem 0;
@@ -763,3 +775,38 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* Adicione estas regras ao seu CSS existente */
+
+.exercicio-acoes {
+    display: flex;
+    gap: 0.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-add {
+    background: var(--neon-green);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+    font-size: 0.8rem;
+}
+
+.btn-add:hover {
+    background: var(--neon-green-dark);
+    transform: scale(1.1);
+}
+
+/* Destaque para os botões quando hover */
+.btn-add[data-treino="A"]:hover { background: #ff6b6b; }
+.btn-add[data-treino="B"]:hover { background: #4ecdc4; }
+.btn-add[data-treino="C"]:hover { background: #45b7d1; }
+.btn-add[data-treino="D"]:hover { background: #96ceb4; }
+.btn-add[data-treino="E"]:hover { background: #feca57; }
+
+/* Mantenha todo o resto do CSS anterior igual */
