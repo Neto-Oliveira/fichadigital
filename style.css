@@ -139,7 +139,7 @@ main {
     color: var(--text-light);
     flex: 1;
     min-width: 100%;
-    font-size: 16px; /* Previne zoom no iOS */
+    font-size: 16px;
 }
 
 .lista-exercicios {
@@ -231,7 +231,6 @@ main {
     transform: scale(1.1);
 }
 
-/* Destaque para os botões quando hover */
 .btn-add[data-treino="A"]:hover { background: #ff6b6b; }
 .btn-add[data-treino="B"]:hover { background: #4ecdc4; }
 .btn-add[data-treino="C"]:hover { background: #45b7d1; }
@@ -344,7 +343,7 @@ main {
     background: #1a1a1a;
     color: var(--text-light);
     text-align: center;
-    font-size: 16px; /* Previne zoom no iOS */
+    font-size: 16px;
 }
 
 .btn-remover-exercicio {
@@ -441,7 +440,7 @@ main {
     background: #1a1a1a;
     color: var(--text-light);
     cursor: pointer;
-    font-size: 16px; /* Previne zoom no iOS */
+    font-size: 16px;
 }
 
 .dia select:focus {
@@ -467,7 +466,7 @@ main {
     transition: var(--transition);
     font-weight: 600;
     width: 100%;
-    font-size: 16px; /* Previne zoom no iOS */
+    font-size: 16px;
 }
 
 .btn-principal {
@@ -557,7 +556,7 @@ main {
     margin-bottom: 0.25rem;
 }
 
-/* Página do Aluno - CHECKBOX COMO ANTES */
+/* Página do Aluno */
 .dias {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -640,7 +639,7 @@ main {
     font-weight: normal;
 }
 
-/* CHECKBOX COMO ERA ANTES - LADO DIREITO */
+/* CHECKBOX BONITINHO COMO ERA ANTES */
 .exercicio {
     background: #222;
     margin: 0.75rem 0;
@@ -659,16 +658,34 @@ main {
     transform: translateX(5px);
 }
 
+.exercicio-content {
+    flex: 1;
+}
+
 .exercicio strong {
     color: var(--neon-green);
-    font-size: 0.9rem;
-    flex: 1;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.exercicio-details {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.exercicio-dica-aluno {
+    font-size: 0.75rem;
+    color: var(--neon-green-light);
+    font-style: italic;
+    opacity: 0.8;
 }
 
 .exercicio-concluido {
     background: #1a2a1a;
     border-color: var(--neon-green);
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .exercicio-concluido strong {
@@ -676,13 +693,23 @@ main {
     text-decoration: line-through;
 }
 
-/* CHECKBOX NO LADO DIREITO COMO ANTES */
+.exercicio-concluido .exercicio-details,
+.exercicio-concluido .exercicio-dica-aluno {
+    opacity: 0.6;
+}
+
+/* CHECKBOX BONITINHO E PEQUENO */
 .checkbox-treino {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     cursor: pointer;
     accent-color: var(--neon-green);
     flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.checkbox-treino:hover {
+    transform: scale(1.1);
 }
 
 .descanso {
@@ -914,23 +941,31 @@ footer {
     }
 }
 
-/* Melhorias de acessibilidade para mobile */
+/* Melhorias específicas para mobile */
 @media (max-width: 768px) {
-    /* Garante que elementos interativos tenham tamanho mínimo de toque */
-    .btn-add, .btn-remover-exercicio, .checkbox-treino, .dias button {
-        min-height: 44px;
-        min-width: 44px;
+    .exercicio {
+        padding: 0.75rem;
+        gap: 0.75rem;
     }
     
-    /* Melhora a legibilidade do texto em telas pequenas */
-    body {
-        font-size: 16px;
-        line-height: 1.5;
+    .exercicio strong {
+        font-size: 0.9rem;
     }
     
-    /* Ajusta espaçamentos para telas pequenas */
-    .exercicio-biblioteca, .exercicio-selecionado, .exercicio {
-        padding: 1rem;
+    .exercicio-details {
+        font-size: 0.8rem;
+    }
+    
+    .exercicio-dica-aluno {
+        font-size: 0.7rem;
+    }
+    
+    /* Checkbox menor em mobile mas ainda clicável */
+    .checkbox-treino {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+        min-height: 20px;
     }
 }
 
