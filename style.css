@@ -975,3 +975,54 @@ footer {
         font-size: 16px !important;
     }
 }
+
+/* Scrollbar personalizada */
+.lista-exercicios::-webkit-scrollbar,
+.exercicios-lista::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lista-exercicios::-webkit-scrollbar-track,
+.exercicios-lista::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 3px;
+}
+
+.lista-exercicios::-webkit-scrollbar-thumb,
+.exercicios-lista::-webkit-scrollbar-thumb {
+    background: var(--neon-green);
+    border-radius: 3px;
+}
+
+.lista-exercicios::-webkit-scrollbar-thumb:hover,
+.exercicios-lista::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-green-dark);
+}
+
+/* Estados de foco para acessibilidade */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--neon-green);
+    outline-offset: 2px;
+}
+
+/* Loading states */
+.btn-principal:disabled,
+.btn-secundario:disabled,
+.btn-reset:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Animações extras */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 255, 65, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
+}
+
+.exercicio-concluido .checkbox-treino {
+    animation: pulse 2s infinite;
+}

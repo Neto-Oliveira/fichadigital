@@ -6,10 +6,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function inicializarSistemaAluno() {
     console.log('Inicializando página do Aluno...');
+    verificarReinicioSemanal(); // VERIFICA REINÍCIO SEMANAL
     configurarEventListenersAluno();
     atualizarProgressoSemanal();
     // Mostra segunda-feira por padrão
     mostrarTreino('segunda');
+}
+
+// FUNÇÃO NOVA: Verificar e reiniciar treinos a cada segunda-feira
+function verificarReinicioSemanal() {
+    const ultimaReinicializacao = localStorage.getItem('ultimaReinicializacao');
+    const hoje = new Date();
+    const diaSemana = hoje.getDay(); // 0 = Domingo, 1 = Segunda, etc.
+    
+    // Se for segunda-feira (1) OU não há registro da última reinicialização
+    if (diaSemana === 1 || !ultimaReinicializacao) {
+        const ultimaData = ultimaReinicializacao ? new Date(ultimaReinicializacao) : new Date(0);
+        const diferencaDias = Math.floor((hoje - ultimaData) / (1000 * 60 * 60 * 24));
+        
+        // Se passou pelo menos 1 dia desde a última reinicialização
+        if (diferencaDias >= 1) {
+            reiniciarProgressoSemanal();
+            localStorage.setItem('ultimaReinicializacao', hoje.toISOString());
+            console.log('✅ Progresso semanal reiniciado automaticamente');
+        }
+    }
+}
+
+// FUNÇÃO NOVA: Reiniciar todo o progresso
+function reiniciarProgressoSemanal() {
+    localStorage.removeItem('progressoAluno');
+    console.log('🔄 Progresso da semana anterior foi limpo');
 }
 
 // Configura event listeners da página do aluno
@@ -118,10 +145,10 @@ function mostrarTreino(dia) {
                 const concluido = exerciciosConcluidos.includes(index);
                 return `
                 <div class="exercicio ${concluido ? 'exercicio-concluido' : ''}">
-                    <div>
+                    <div class="exercicio-content">
                         <strong>${ex.nome}</strong>
-                        <div>${ex.seriesPersonalizada}x${ex.repeticoesPersonalizada}</div>
-                        ${ex.dica ? `<small class="exercicio-dica">💡 ${ex.dica}</small>` : ''}
+                        <div class="exercicio-details">${ex.seriesPersonalizada}x${ex.repeticoesPersonalizada}</div>
+                        ${ex.dica ? `<div class="exercicio-dica-aluno">💡 ${ex.dica}</div>` : ''}
                     </div>
                     <input type="checkbox" class="checkbox-treino" 
                            ${concluido ? 'checked' : ''}
@@ -163,7 +190,7 @@ function getDiaSemana(dia) {
     return dias[dia] || dia;
 }
 
-// Marca/desmarca exercício
+// Marca/desmarca exercício - CORRIGIDA
 function marcarExercicio(dia, index, concluido) {
     const progressoSalvo = localStorage.getItem('progressoAluno');
     const progresso = progressoSalvo ? JSON.parse(progressoSalvo) : {};
@@ -182,6 +209,17 @@ function marcarExercicio(dia, index, concluido) {
     }
     
     localStorage.setItem('progressoAluno', JSON.stringify(progresso));
+    
+    // ATUALIZA VISUALMENTE O EXERCÍCIO ESPECÍFICO
+    const exercicioElement = document.querySelector(`.checkbox-treino[data-dia="${dia}"][data-index="${index}"]`)?.closest('.exercicio');
+    if (exercicioElement) {
+        if (concluido) {
+            exercicioElement.classList.add('exercicio-concluido');
+        } else {
+            exercicioElement.classList.remove('exercicio-concluido');
+        }
+    }
+    
     atualizarProgressoSemanal();
 }
 
