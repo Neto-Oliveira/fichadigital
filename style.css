@@ -557,7 +557,7 @@ main {
     margin-bottom: 0.25rem;
 }
 
-/* Página do Aluno */
+/* Página do Aluno - CHECKBOX COMO ANTES */
 .dias {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -640,16 +640,18 @@ main {
     font-weight: normal;
 }
 
+/* CHECKBOX COMO ERA ANTES - LADO DIREITO */
 .exercicio {
     background: #222;
     margin: 0.75rem 0;
-    padding: 0.75rem;
+    padding: 1rem;
     border-radius: var(--border-radius);
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
     border: 1px solid #333;
     transition: var(--transition);
+    gap: 1rem;
 }
 
 .exercicio:hover {
@@ -660,6 +662,7 @@ main {
 .exercicio strong {
     color: var(--neon-green);
     font-size: 0.9rem;
+    flex: 1;
 }
 
 .exercicio-concluido {
@@ -673,12 +676,13 @@ main {
     text-decoration: line-through;
 }
 
+/* CHECKBOX NO LADO DIREITO COMO ANTES */
 .checkbox-treino {
     width: 20px;
     height: 20px;
     cursor: pointer;
     accent-color: var(--neon-green);
-    align-self: flex-end;
+    flex-shrink: 0;
 }
 
 .descanso {
@@ -800,16 +804,6 @@ footer {
     
     .progresso-dias {
         grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .exercicio {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .checkbox-treino {
-        align-self: center;
     }
 }
 
