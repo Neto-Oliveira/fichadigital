@@ -3,109 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Trainer - Sistema de Treinos Flexível</title>
+    <title>LirouGym - Sistema de Ficha Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+<<<<<<< HEAD
         <h1>LirouGym - Sistema de ficha digital </h1>
         <p>Adicione qualquer exercício a qualquer treino para máxima flexibilidade</p>
+=======
+        <div class="header-content">
+            <h1><i class="fas fa-dumbbell"></i> LirouGym - Sistema de Ficha Digital</h1>
+            <p>Configure treinos personalizados com máxima flexibilidade</p>
+        </div>
+>>>>>>> ce21219 (rebranding de cores, funções novas)
     </header>
 
     <main>
         <section class="configuracao-avancada">
-            <h2>Configuração de Treinos Flexível</h2>
+            <h2><i class="fas fa-sliders-h"></i> Configuração de Treinos Flexível</h2>
             
-            <div class="biblioteca-exercicios">
-                <h3>📚 Biblioteca de Exercícios</h3>
-                <div class="filtros">
-                    <select id="filtro-grupo">
-                        <option value="">Todos os Grupos</option>
-                        <option value="A">🦵 Perna e Glúteo</option>
-                        <option value="B">💪 Ombro e Trapézio</option>
-                        <option value="C">💪 Peito e Tríceps</option>
-                        <option value="D">🏋️‍♂️ Costas e Bíceps</option>
-                        <option value="E">🧠 Abdômen e Cardio</option>
-                    </select>
-                    <input type="text" id="busca-exercicio" placeholder="🔍 Buscar exercício...">
-                </div>
-                <div id="lista-exercicios" class="lista-exercicios">
-                    <!-- Exercícios carregados via JavaScript -->
+            <!-- Informações Importantes -->
+            <div class="info-sistema">
+                <div class="info-card">
+                    <h3><i class="fas fa-lightbulb"></i> Como Funciona o Sistema</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <div>
+                                <strong>Sequência Automática</strong>
+                                <p>Segue A → B → C → D → E de forma automática</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-edit"></i>
+                            <div>
+                                <strong>Flexibilidade Total</strong>
+                                <p>Não é necessário usar todas as letras de treinos ;) </p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-user-check"></i>
+                            <div>
+                                <strong>Novos treinos</strong>
+                                <p>Sempre que desejar fazer um novo treino lembre de resetar tudo :)</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <strong>Progresso Automático</strong>
+                                <p>Quando completa um treino, avança para o próximo automaticamente após virar o dia</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- Abas para Biblioteca -->
+            <div class="abas-biblioteca">
+                <button class="aba ativa" data-aba="biblioteca-principal">
+                    <i class="fas fa-book"></i> Biblioteca de Exercícios
+                </button>
+                <button class="aba" data-aba="biblioteca-pessoal">
+                    <i class="fas fa-user-edit"></i> Biblioteca Pessoal
+                </button>
+            </div>
+            
+            <!-- Biblioteca Principal -->
+            <div id="biblioteca-principal" class="conteudo-aba ativa">
+                <div class="biblioteca-exercicios">
+                    <h3><i class="fas fa-book-open"></i> Biblioteca de Exercícios</h3>
+                    <div class="filtros">
+                        <select id="filtro-grupo">
+                            <option value="">Todos os Grupos Musculares</option>
+                            <option value="perna">🦵 Perna</option>
+                            <option value="gluteo">🍑 Glúteo</option>
+                            <option value="peito">💪 Peito</option>
+                            <option value="triceps">💪 Tríceps</option>
+                            <option value="costas">🏋️‍♂️ Costas</option>
+                            <option value="biceps">💪 Bíceps</option>
+                            <option value="ombro">💪 Ombro</option>
+                            <option value="trapezio">🔺 Trapézio</option>
+                            <option value="abdomen">🧠 Abdômen</option>
+                            <option value="cardio">🏃‍♂️ Cardio</option>
+                            <option value="descanso">🧘‍♂️ Descanso</option>
+                        </select>
+                        <input type="text" id="busca-exercicio" placeholder="🔍 Buscar exercício...">
+                        <button id="btn-limpar-filtros" class="btn-limpar">
+                            <i class="fas fa-times"></i> Limpar Filtros
+                        </button>
+                    </div>
+                    <div id="lista-exercicios" class="lista-exercicios">
+                        <!-- Exercícios carregados via JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Biblioteca Pessoal -->
+            <div id="biblioteca-pessoal" class="conteudo-aba">
+                <div class="biblioteca-pessoal">
+                    <h3><i class="fas fa-user-edit"></i> Biblioteca Pessoal</h3>
+                    <div class="adicionar-exercicio-pessoal">
+                        <div class="form-grid">
+                            <input type="text" id="novo-exercicio-nome" placeholder="Nome do exercício">
+                            <select id="novo-exercicio-grupo">
+                                <option value="perna">🦵 Perna</option>
+                                <option value="gluteo">🍑 Glúteo</option>
+                                <option value="peito">💪 Peito</option>
+                                <option value="triceps">💪 Tríceps</option>
+                                <option value="costas">🏋️‍♂️ Costas</option>
+                                <option value="biceps">💪 Bíceps</option>
+                                <option value="ombro">💪 Ombro</option>
+                                <option value="trapezio">🔺 Trapézio</option>
+                                <option value="abdomen">🧠 Abdômen</option>
+                                <option value="cardio">🏃‍♂️ Cardio</option>
+                                <option value="descanso">🧘‍♂️ Descanso</option>
+                            </select>
+                            <input type="number" id="novo-exercicio-series" placeholder="Séries" min="1" max="10">
+                            <input type="text" id="novo-exercicio-repeticoes" placeholder="Repetições">
+                            <input type="text" id="novo-exercicio-dica" placeholder="Dica (opcional)">
+                            <button id="btn-adicionar-pessoal" class="btn-principal">
+                                <i class="fas fa-plus"></i> Adicionar Exercício
+                            </button>
+                        </div>
+                    </div>
+                    <div id="lista-exercicios-pessoal" class="lista-exercicios">
+                        <!-- Exercícios pessoais carregados via JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Treinos Personalizados -->
             <div class="treinos-personalizados">
-                <h3>🎯 Treinos Personalizados (Adicione qualquer exercício a qualquer treino)</h3>
+                <h3><i class="fas fa-dumbbell"></i> Treinos Personalizados</h3>
+                <p class="subtitulo">
+                    <i class="fas fa-info-circle"></i> Adicione qualquer exercício a qualquer treino - O sistema segue a sequência A → B → C → D → E
+                </p>
                 
-                <!-- CONTAINER COM SCROLL HORIZONTAL -->
+                <!-- Container com Scroll Horizontal -->
                 <div class="scroll-horizontal">
                     <div class="grupos-treino-scroll">
                         <div class="grupo" data-grupo="A">
                             <div class="grupo-header">
-                                <h4>🦵 TREINO A</h4>
-                                <input type="text" class="nome-treino" value="Perna e Glúteo" placeholder="Nome do treino...">
+                                <h4><i class="fas fa-running"></i> TREINO A</h4>
+                                <input type="text" class="nome-treino" placeholder="Ex: Perna e Glúteo">
                             </div>
                             <div class="exercicios-lista" data-grupo="A">
                                 <!-- Exercícios selecionados -->
                             </div>
                             <div class="controles-grupo">
-                                <button class="btn-limpar" data-treino="A">🗑️ Limpar</button>
+                                <button class="btn-limpar" data-treino="A">
+                                    <i class="fas fa-trash"></i> Limpar
+                                </button>
                                 <span class="contador">0 exercícios</span>
                             </div>
                         </div>
 
                         <div class="grupo" data-grupo="B">
                             <div class="grupo-header">
-                                <h4>💪 TREINO B</h4>
-                                <input type="text" class="nome-treino" value="Ombro e Trapézio" placeholder="Nome do treino...">
+                                <h4><i class="fas fa-dumbbell"></i> TREINO B</h4>
+                                <input type="text" class="nome-treino" placeholder="Ex: Peito e Tríceps">
                             </div>
                             <div class="exercicios-lista" data-grupo="B">
                                 <!-- Exercícios selecionados -->
                             </div>
                             <div class="controles-grupo">
-                                <button class="btn-limpar" data-treino="B">🗑️ Limpar</button>
+                                <button class="btn-limpar" data-treino="B">
+                                    <i class="fas fa-trash"></i> Limpar
+                                </button>
                                 <span class="contador">0 exercícios</span>
                             </div>
                         </div>
 
                         <div class="grupo" data-grupo="C">
                             <div class="grupo-header">
-                                <h4>💪 TREINO C</h4>
-                                <input type="text" class="nome-treino" value="Peito e Tríceps" placeholder="Nome do treino...">
+                                <h4><i class="fas fa-hands"></i> TREINO C</h4>
+                                <input type="text" class="nome-treino" placeholder="Ex: Costas e Bíceps">
                             </div>
                             <div class="exercicios-lista" data-grupo="C">
                                 <!-- Exercícios selecionados -->
                             </div>
                             <div class="controles-grupo">
-                                <button class="btn-limpar" data-treino="C">🗑️ Limpar</button>
+                                <button class="btn-limpar" data-treino="C">
+                                    <i class="fas fa-trash"></i> Limpar
+                                </button>
                                 <span class="contador">0 exercícios</span>
                             </div>
                         </div>
 
                         <div class="grupo" data-grupo="D">
                             <div class="grupo-header">
-                                <h4>🏋️‍♂️ TREINO D</h4>
-                                <input type="text" class="nome-treino" value="Costas e Bíceps" placeholder="Nome do treino...">
+                                <h4><i class="fas fa-user"></i> TREINO D</h4>
+                                <input type="text" class="nome-treino" placeholder="Ex: Ombro e Trapézio">
                             </div>
                             <div class="exercicios-lista" data-grupo="D">
                                 <!-- Exercícios selecionados -->
                             </div>
                             <div class="controles-grupo">
-                                <button class="btn-limpar" data-treino="D">🗑️ Limpar</button>
+                                <button class="btn-limpar" data-treino="D">
+                                    <i class="fas fa-trash"></i> Limpar
+                                </button>
                                 <span class="contador">0 exercícios</span>
                             </div>
                         </div>
 
                         <div class="grupo" data-grupo="E">
                             <div class="grupo-header">
-                                <h4>🧠 TREINO E</h4>
-                                <input type="text" class="nome-treino" value="Abdômen e Cardio" placeholder="Nome do treino...">
+                                <h4><i class="fas fa-heartbeat"></i> TREINO E</h4>
+                                <input type="text" class="nome-treino" placeholder="Ex: Abdômen e Cardio">
                             </div>
                             <div class="exercicios-lista" data-grupo="E">
                                 <!-- Exercícios selecionados -->
                             </div>
                             <div class="controles-grupo">
-                                <button class="btn-limpar" data-treino="E">🗑️ Limpar</button>
+                                <button class="btn-limpar" data-treino="E">
+                                    <i class="fas fa-trash"></i> Limpar
+                                </button>
                                 <span class="contador">0 exercícios</span>
                             </div>
                         </div>
@@ -113,101 +228,53 @@
                 </div>
             </div>
 
-            <div class="configuracao-semanal">
-                <h3>📅 Distribuição Semanal dos Treinos</h3>
-                <div class="dias-semana">
-                    <div class="dia">
-                        <h4>Segunda-feira</h4>
-                        <select id="segunda">
-                            <option value="">Selecione um treino</option>
-                            <option value="A">Treino A</option>
-                            <option value="B">Treino B</option>
-                            <option value="C">Treino C</option>
-                            <option value="D">Treino D</option>
-                            <option value="E">Treino E</option>
-                            <option value="descanso">Descanso</option>
-                        </select>
-                    </div>
-                    <div class="dia">
-                        <h4>Terça-feira</h4>
-                        <select id="terca">
-                            <option value="">Selecione um treino</option>
-                            <option value="A">Treino A</option>
-                            <option value="B">Treino B</option>
-                            <option value="C">Treino C</option>
-                            <option value="D">Treino D</option>
-                            <option value="E">Treino E</option>
-                            <option value="descanso">Descanso</option>
-                        </select>
-                    </div>
-                    <div class="dia">
-                        <h4>Quarta-feira</h4>
-                        <select id="quarta">
-                            <option value="">Selecione um treino</option>
-                            <option value="A">Treino A</option>
-                            <option value="B">Treino B</option>
-                            <option value="C">Treino C</option>
-                            <option value="D">Treino D</option>
-                            <option value="E">Treino E</option>
-                            <option value="descanso">Descanso</option>
-                        </select>
-                    </div>
-                    <div class="dia">
-                        <h4>Quinta-feira</h4>
-                        <select id="quinta">
-                            <option value="">Selecione um treino</option>
-                            <option value="A">Treino A</option>
-                            <option value="B">Treino B</option>
-                            <option value="C">Treino C</option>
-                            <option value="D">Treino D</option>
-                            <option value="E">Treino E</option>
-                            <option value="descanso">Descanso</option>
-                        </select>
-                    </div>
-                    <div class="dia">
-                        <h4>Sexta-feira</h4>
-                        <select id="sexta">
-                            <option value="">Selecione um treino</option>
-                            <option value="A">Treino A</option>
-                            <option value="B">Treino B</option>
-                            <option value="C">Treino C</option>
-                            <option value="D">Treino D</option>
-                            <option value="E">Treino E</option>
-                            <option value="descanso">Descanso</option>
-                        </select>
-                    </div>
-                    <div class="dia">
-                        <h4>Sábado</h4>
-                        <select id="sabado">
-                            <option value="">Selecione um treino</option>
-                            <option value="A">Treino A</option>
-                            <option value="B">Treino B</option>
-                            <option value="C">Treino C</option>
-                            <option value="D">Treino D</option>
-                            <option value="E">Treino E</option>
-                            <option value="descanso">Descanso</option>
-                        </select>
-                    </div>
+            <!-- Sequência de Treinos -->
+            <div class="sequencia-treinos">
+                <h3><i class="fas fa-sync-alt"></i> Sequência de Treinos</h3>
+                <div class="info-sequencia">
+                    <p><i class="fas fa-arrow-right"></i> O sistema segue automaticamente a sequência: <strong>A → B → C → D → E</strong></p>
+                    <p><i class="fas fa-check-circle"></i> Quando o aluno completa um treino, automaticamente avança para o próximo da sequência no outro dia normalmente</p>
+                    <p><i class="fas fa-check-circle"></i> Dica extra: se seu treino tem descanso durante a semana, adicione o descanso em uma letra separada para não afetar a sequência de dias !</p>
+                    <p class="dica-importante">
+                        <i class="fas fa-exclamation-triangle"></i> 
+                        <strong>Importante:</strong> Não é necessário usar todos as letras do treino. Use apenas as que desejar!
+                    </p>
                 </div>
             </div>
 
+            <!-- Ações -->
             <div class="acoes">
-                <button id="btn-salvar" class="btn-principal">💾 Salvar Configuração</button>
-                <button id="btn-visualizar" class="btn-secundario">👀 Visualizar Ficha do Aluno</button>
-                <button id="btn-resetar" class="btn-reset">🔄 Resetar Tudo</button>
+                <button id="btn-salvar" class="btn-principal">
+                    <i class="fas fa-save"></i> Salvar Configuração
+                </button>
+                <button id="btn-visualizar" class="btn-secundario">
+                    <i class="fas fa-eye"></i> Visualizar Ficha do Aluno
+                </button>
+                <button id="btn-resetar" class="btn-reset">
+                    <i class="fas fa-undo"></i> Resetar Tudo
+                </button>
             </div>
+
         </section>
 
+        <!-- Pré-visualização -->
         <section class="preview-treino">
-            <h2>Pré-visualização do Treino do Aluno</h2>
+            <h2><i class="fas fa-file-alt"></i> Pré-visualização do Treino do Aluno</h2>
             <div id="preview-container">
-                <p>Configure os treinos para ver a pré-visualização.</p>
+                <div class="preview-placeholder">
+                    <i class="fas fa-dumbbell"></i>
+                    <p>Configure os treinos para ver a pré-visualização.</p>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
+<<<<<<< HEAD
         <p> LirouGym - Sistema de ficha digital</p>
+=======
+        <p><i class="fas fa-dumbbell"></i> LirouGym - Sistema de ficha digital</p>
+>>>>>>> ce21219 (rebranding de cores, funções novas)
     </footer>
 
     <script src="script-personal.js"></script>

@@ -11,26 +11,27 @@
         <h1>💪 Minha Ficha de Treino</h1>
         <p>Acompanhe seu progresso e conclua seus treinos</p>
         <div class="info-aluno">
-            <span><strong>Aluno:</strong> Neto</span>
-            <span><strong>Personal:</strong> Academia VippFits</span>
-            <span id="status-treino" class="status-pendente">Treino da semana: Pendente</span>
+            <span id="status-treino" class="status-pendente">Carregando...</span>
+            <span id="treino-atual" class="treino-info"></span>
         </div>
     </header>
 
     <main>
-        <nav class="dias">
-            <button data-dia="segunda" id="btn-segunda">Segunda</button>
-            <button data-dia="terca" id="btn-terca">Terça</button>
-            <button data-dia="quarta" id="btn-quarta">Quarta</button>
-            <button data-dia="quinta" id="btn-quinta">Quinta</button>
-            <button data-dia="sexta" id="btn-sexta">Sexta</button>
-            <button data-dia="sabado" id="btn-sabado">Sábado</button>
-        </nav>
-
+        <!-- BOTÕES DE TESTE (APENAS PARA TESTES - PODE SER REMOVIDO DEPOIS) 
+        <div class="botoes-teste">
+            <button id="btn-teste-avancar-dia">
+                🚀 TESTE: Avançar para Próximo Dia
+            </button>
+            <button id="btn-teste-resetar">
+                🔄 TESTE: Resetar Progresso
+            </button>
+            <p>Botões para testes - Não afetam dados reais (podem ser removidos depois)</p>
+        </div>
+        !-->
         <section id="conteudo-treino">
             <div class="mensagem-inicial">
                 <h2>Bem-vindo à sua ficha de treino!</h2>
-                <p>Selecione um dia da semana para ver e executar seu treino.</p>
+                <p>O sistema está carregando seu treino do dia automaticamente...</p>
                 <p>Marque cada exercício conforme for concluindo ✅</p>
             </div>
         </section>
@@ -40,6 +41,7 @@
             <div class="progresso-dias">
                 <div class="dia-progresso" data-dia="segunda">
                     <span>Segunda</span>
+                    <div class="nome-treino">-</div>
                     <div class="barra-progresso">
                         <div class="progresso" style="width: 0%"></div>
                     </div>
@@ -47,6 +49,7 @@
                 </div>
                 <div class="dia-progresso" data-dia="terca">
                     <span>Terça</span>
+                    <div class="nome-treino">-</div>
                     <div class="barra-progresso">
                         <div class="progresso" style="width: 0%"></div>
                     </div>
@@ -54,6 +57,7 @@
                 </div>
                 <div class="dia-progresso" data-dia="quarta">
                     <span>Quarta</span>
+                    <div class="nome-treino">-</div>
                     <div class="barra-progresso">
                         <div class="progresso" style="width: 0%"></div>
                     </div>
@@ -61,6 +65,7 @@
                 </div>
                 <div class="dia-progresso" data-dia="quinta">
                     <span>Quinta</span>
+                    <div class="nome-treino">-</div>
                     <div class="barra-progresso">
                         <div class="progresso" style="width: 0%"></div>
                     </div>
@@ -68,6 +73,7 @@
                 </div>
                 <div class="dia-progresso" data-dia="sexta">
                     <span>Sexta</span>
+                    <div class="nome-treino">-</div>
                     <div class="barra-progresso">
                         <div class="progresso" style="width: 0%"></div>
                     </div>
@@ -75,11 +81,31 @@
                 </div>
                 <div class="dia-progresso" data-dia="sabado">
                     <span>Sábado</span>
+                    <div class="nome-treino">-</div>
                     <div class="barra-progresso">
                         <div class="progresso" style="width: 0%"></div>
                     </div>
                     <span class="percentual">0%</span>
                 </div>
+                <div class="dia-progresso" data-dia="domingo">
+                    <span>Domingo</span>
+                    <div class="nome-treino">-</div>
+                    <div class="barra-progresso">
+                        <div class="progresso" style="width: 0%"></div>
+                    </div>
+                    <span class="percentual">0%</span>
+                </div>
+            </div>
+            <div class="resumo-semanal">
+                <div id="contador-semanal">0/7 dias completos esta semana</div>
+                <div id="streak-atual">🔥 Sequência atual: 0 dias</div>
+            </div>
+            
+            <!-- Contador de dias na academia (opcional) -->
+            <div class="contador-academia">
+                <h4>🏋️‍♂️ Dias de treino</h4>
+                <div class="numero" id="contador-academia">0</div>
+                <div class="label">desde o início</div>
             </div>
         </section>
     </main>
